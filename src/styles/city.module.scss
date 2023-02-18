@@ -1,0 +1,44 @@
+@use "./palette.module.scss" as palette;
+
+
+.main {
+
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &__panel {
+
+    @include palette.glassyDiv;
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+
+
+    &__body {
+
+      height: 100%;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      display: flex;
+
+      &__left {
+
+        border-bottom-left-radius: 15px;
+        width: 30%;
+
+      }
+
+    }
+
+  }
+
+}
