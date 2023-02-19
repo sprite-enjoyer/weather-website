@@ -2,6 +2,7 @@
 
 .main {
 
+  @include palette.myFont(300);
   flex-grow: 1;
 
   &__section {
@@ -12,9 +13,6 @@
     &__image {
       @include palette.smallImage(30px);
     }
-
-    &__txt {}
-
 
   }
 

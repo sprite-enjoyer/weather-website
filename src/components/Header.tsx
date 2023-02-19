@@ -1,4 +1,7 @@
+import { StringLiteralLike } from "typescript";
 import styles from "../styles/header.module.scss";
+import WeatherInfoPiece from "./WeatherInfoPiece";
+import Windmill from "./Windmill";
 
 
 export interface HeaderProps {
@@ -6,10 +9,10 @@ export interface HeaderProps {
   temperature: number,
   iconLink: string,
   weatherName: string,
-
+  windSpeed: string
 }
 
-const Header = ({ cityName, temperature, iconLink, weatherName }: HeaderProps) => {
+const Header = ({ cityName, temperature, iconLink, weatherName, windSpeed }: HeaderProps) => {
 
   return (
     <div className={styles["header"]} >

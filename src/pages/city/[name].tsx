@@ -107,6 +107,7 @@ const city = ({
             temperature={temperature}
             iconLink={iconLink}
             weatherName={weatherName}
+            windSpeed={`Wind Speed: ${windSpeed}m/s`}
           />
           <div className={styles["main__panel__body"]} >
             <div className={styles["main__panel__body__left"]} >
@@ -120,7 +121,8 @@ const city = ({
                 tempMax={[`Maximal Temperature: ${tempMax}°`, "/images/tempMax.svg"]}
                 sunrise={[`Sunrise At: ${sunrise}`, "/images/sunrise.svg"]}
                 sunset={[`Sunset At: ${sunset}`, "/images/sunset.svg"]}
-                timezone={[`Universal Timezone: ${timezone}`, "/images/timezone.svg"]}
+                timezone={[`Timezone: ${timezone}`, "/images/timezone.svg"]}
+                windSpeed={`Wind Speed: ${windSpeed} m/s`}
               />
             </div>
             <div className={styles["main__panel__body__right"]} >

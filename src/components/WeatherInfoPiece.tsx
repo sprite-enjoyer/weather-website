@@ -1,22 +1,25 @@
 import styles from "../styles/weatherInfoPiece.module.scss";
-import Image from "next/image";
+import { ReactNode } from "react";
 
 export interface WeatherInfoPieceProps {
   text: string,
-  iconURI: string,
+  iconURI?: string,
+  Component: ReactNode
 }
 
-const WeatherInfoPiece = ({ text, iconURI }: WeatherInfoPieceProps) => {
+const WeatherInfoPiece = ({ text, iconURI, Component }: WeatherInfoPieceProps) => {
   return (
     <div className={styles["main"]} >
       <div className={styles["main__section"]}  >
-        <img
-          className={styles["main__section__image"]}
-          src={iconURI}
-          width={30}
-          height={30}
-          alt={`${text} image`}
-        />
+        {Component ??
+          <img
+            className={styles["main__section__image"]}
+            src={iconURI}
+            width={30}
+            height={30}
+            alt={`${text} image`}
+          />
+        }
         <span className={styles["main__section__txt"]}>
           {text}
         </span>
