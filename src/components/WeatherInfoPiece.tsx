@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export interface WeatherInfoPieceProps {
   text: string,
   iconURI?: string,
-  Component: ReactNode
+  Component: ReactNode | undefined
 }
 
 const WeatherInfoPiece = ({ text, iconURI, Component }: WeatherInfoPieceProps) => {

@@ -1,6 +1,7 @@
 import FiveDayForecast from "@/components/FiveDayForecast";
 import Header from "@/components/Header";
 import LeftSide from "@/components/LeftSide";
+import Windmill from "@/components/Windmill";
 import { iconMap } from "@/records";
 import { WeatherApiResponse } from "@/types";
 import { GetServerSideProps } from "next";
@@ -91,7 +92,7 @@ const city = ({
 }: CityProps) => {
 
   const iconLink = iconMap[weatherIconName ?? "200"];
-  const title4Seo = `${cityName} Weather`;
+  const title4Seo = `Weather in ${cityName}`;
 
   return (
     <>
@@ -112,6 +113,7 @@ const city = ({
           <div className={styles["main__panel__body"]} >
             <div className={styles["main__panel__body__left"]} >
               <LeftSide
+                windSpeed={[`Wind Speed: ${windSpeed} m/s`, <Windmill height="40px" width="30px" />]}
                 humidity={[`Humidity: ${humidity}%`, "/images/humidity.svg"]}
                 visibility={[`Visibility: ${visibility} Meters`, "/images/visibility.svg"]}
                 pressure={[`Pressure: ${pressure} hPa`, "/images/pressure.svg"]}
@@ -122,7 +124,6 @@ const city = ({
                 sunrise={[`Sunrise At: ${sunrise}`, "/images/sunrise.svg"]}
                 sunset={[`Sunset At: ${sunset}`, "/images/sunset.svg"]}
                 timezone={[`Timezone: ${timezone}`, "/images/timezone.svg"]}
-                windSpeed={`Wind Speed: ${windSpeed} m/s`}
               />
             </div>
             <div className={styles["main__panel__body__right"]} >

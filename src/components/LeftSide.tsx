@@ -1,10 +1,12 @@
+import { link } from "fs";
+import React, { ReactNode } from "react";
 import styles from "../styles/leftSide.module.scss";
 import WeatherInfoPiece from "./WeatherInfoPiece";
 import Windmill from "./Windmill";
 
 export interface LeftSideProps {
 
-  windSpeed: string,
+  windSpeed: [string, ReactNode],
   humidity: [string, string],
   pressure: [string, string],
   cloudiness: [string, string],
@@ -19,13 +21,18 @@ export interface LeftSideProps {
 
 const LeftSide = (props: LeftSideProps) => {
 
-  const properties: [string, string][] = Object.values(props);
+  const properties: [string, (string | ReactNode)][] = Object.values(props);
 
   return (
     <div className={styles["main"]} >
-      <WeatherInfoPiece text={props.windSpeed} Component={<Windmill width={"30px"} height={"40px"} />} />
       {properties.map(
-        ([text, link]) => <WeatherInfoPiece key={link} text={text} iconURI={link} Component={undefined} />
+        ([text, linkOrNode]) =>
+          <WeatherInfoPiece
+            key={text}
+            text={text}
+            iconURI={typeof linkOrNode === "string" ? linkOrNode : undefined}
+            Component={typeof linkOrNode === "string" ? undefined : linkOrNode}
+          />
       )}
     </div>
   );
