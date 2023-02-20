@@ -19,3 +19,18 @@ export const iconMap: Record<string, string> = {
   "50d": "http://openweathermap.org/img/wn/50d@2x.png",
   "50n": "http://openweathermap.org/img/wn/50n@2x.png",
 };
+
+export const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];

@@ -86,7 +86,7 @@ const city = ({
 
   const iconLink = iconMap[weatherIconName ?? "200"];
   const title4Seo = `Weather in ${cityName}`;
-  console.log(`weather-images/${weatherIconName}.jpg`)
+
   return (
     <>
       <Head>

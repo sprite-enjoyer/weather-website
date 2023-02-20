@@ -3,6 +3,7 @@
 
 .main {
 
+  @include palette.myFont(300);
   width: 50%;
   margin-left: auto;
   border-top-right-radius: 15px;
@@ -13,19 +14,41 @@
   position: absolute;
   right: 0;
   height: 17%;
+  z-index: 20;
 
-  &__search-box {
+  &__btn {
 
     outline: none;
     border: none;
-    background-color: rgba(255, 255, 255, 0.623);
+    background-color: transparent;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.226);
-    width: 30%;
+    width: 50%;
     height: 50px;
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    transition: all ease 0.5s;
 
+    &:hover {
+      transition: all ease 0.5s;
+      background-color: rgba(255, 255, 255, 0.192);
+    }
+
+    &__arrow {
+
+      margin-left: auto;
+      margin-right: 10px;
+      height: 60%;
+
+    }
+
+    &__text {
+
+      padding-left: 5%;
+    }
 
   }
 
@@ -79,18 +102,20 @@
     grid-template-columns: repeat(4, 1fr);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    background-color: transparent;
 
     &__btn {
 
+      @include palette.myFont(200);
       cursor: pointer;
       border: none;
       border-radius: 2px;
       background-color: transparent;
-      background-color: rgba(255, 255, 255, 0.397);
-
+      background-color: rgba(143, 143, 143, 0.788);
+      color: white;
 
       &:hover {
-        background-color: rgba(128, 128, 128, 0.747);
+        background-color: rgba(212, 212, 212, 0.829);
       }
 
     }

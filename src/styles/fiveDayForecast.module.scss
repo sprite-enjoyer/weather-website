@@ -1,0 +1,22 @@
+.main {
+
+  position: absolute;
+  border-bottom-right-radius: 15px;
+  width: 100%;
+  height: 100%;
+
+
+
+  &__upper {
+
+    height: 50%;
+  }
+
+
+  &__lower {
+
+    height: 50%;
+
+  }
+
+}
