@@ -1,4 +1,4 @@
-import FiveDayForecast from "@/components/FiveDayForecast";
+import RightSide from "@/components/RightSide";
 import Header from "@/components/Header";
 import LeftSide from "@/components/LeftSide";
 import Windmill from "@/components/Windmill";
@@ -21,17 +21,22 @@ export interface CityProps {
   feelsLike: number,
   tempMin: number,
   tempMax: number,
+  lat: string,
+  lon: string,
   sunrise?: string,
   sunset?: string,
   timezone?: string,
   visibility?: number,
+
 };
 
 export const getServerSideProps: GetServerSideProps<CityProps> = async (context) => {
 
   const standardString = "https://api.openweathermap.org/data/2.5/weather?units=metric";
   const redirectProps = { props: {}, redirect: { destination: "/404", permanent: false } };
-  const { lat, lon } = context.query;
+  let { lat, lon } = context.query;
+  lat = lat?.toString();
+  lon = lon?.toString();
 
   if (!lat || !lon) return redirectProps;
 
@@ -39,7 +44,7 @@ export const getServerSideProps: GetServerSideProps<CityProps> = async (context)
 
   const result: WeatherApiResponse = await fetch(stringWithQuery)
     .then(async (data) => await data.json())
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
 
   const formattedOffset = result.timezone ?
     'UTC ' + ((result.timezone / 3600) >= 0 ? '+' : '') + result.timezone / 3600
@@ -62,6 +67,8 @@ export const getServerSideProps: GetServerSideProps<CityProps> = async (context)
       sunrise: result.sys.sunrise ? new Date(result.sys.sunrise * 1000).toLocaleTimeString() : undefined,
       sunset: result.sys.sunset ? new Date(result.sys.sunset * 1000).toLocaleTimeString() : undefined,
       timezone: formattedOffset,
+      lat: lat,
+      lon: lon,
     }
   };
 }
@@ -81,7 +88,9 @@ const city = ({
   tempMin,
   sunrise,
   sunset,
-  timezone
+  timezone,
+  lat,
+  lon
 }: CityProps) => {
 
   const iconLink = iconMap[weatherIconName ?? "200"];
@@ -123,7 +132,7 @@ const city = ({
               />
             </div>
             <div className={styles["main__panel__body__right"]} >
-              <FiveDayForecast />
+              <RightSide lat={lat} lon={lon} />
             </div>
           </div>
         </div>

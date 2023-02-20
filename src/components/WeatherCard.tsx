@@ -1,5 +1,4 @@
 import styles from "../styles/weatherCard.module.scss";
-
 export interface WeatherCardProps {
 
   day: string,
@@ -11,7 +10,15 @@ export interface WeatherCardProps {
   windSpeed: string,
 }
 
-const WeatherCard = ({ day, date, image, weatherName, temperature, humidity, windSpeed }: WeatherCardProps) => {
+const WeatherCard = ({
+  day,
+  date,
+  image,
+  weatherName,
+  temperature,
+  humidity,
+  windSpeed,
+}: WeatherCardProps) => {
 
   return (
     <div className={styles["main"]} >
@@ -30,7 +37,6 @@ const WeatherCard = ({ day, date, image, weatherName, temperature, humidity, win
             className={styles["main__weather__wrapper__image"]}
           />
         </div>
-
         <span className={styles["main__weather__name"]} >
           {weatherName}
         </span>
