@@ -1,20 +1,14 @@
-import { observer } from "mobx-react";
-import { StringLiteralLike } from "typescript";
 import styles from "../styles/header.module.scss";
 import CityChooser from "./CityChooser";
-import WeatherInfoPiece from "./WeatherInfoPiece";
-import Windmill from "./Windmill";
-
 
 export interface HeaderProps {
   cityName: string,
   temperature: number,
   iconLink: string,
   weatherName: string,
-  windSpeed: string
 }
 
-const Header = ({ cityName, temperature, iconLink, weatherName, windSpeed }: HeaderProps) => {
+const Header = ({ cityName, temperature, iconLink, weatherName }: HeaderProps) => {
 
   return (
     <div className={styles["header"]} >

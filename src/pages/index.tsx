@@ -86,22 +86,25 @@ const city = ({
 
   const iconLink = iconMap[weatherIconName ?? "200"];
   const title4Seo = `Weather in ${cityName}`;
-
+  console.log(`weather-images/${weatherIconName}.jpg`)
   return (
     <>
       <Head>
         <title>{title4Seo}</title>
       </Head>
-      <div className={styles["main"]} style={{
-        backgroundImage: "url(https://img.rasset.ie/0015d72f-1600.jpg)"
-      }} >
+      <div className={styles["main"]} >
+        <img
+          className={styles["main__background-image"]}
+          src={`weather-images/${weatherIconName}.jpg`}
+          alt="weather image"
+        />
+
         <div className={styles["main__panel"]} >
           <Header
             cityName={cityName}
             temperature={temperature}
             iconLink={iconLink}
             weatherName={weatherName}
-            windSpeed={`Wind Speed: ${windSpeed}m/s`}
           />
           <div className={styles["main__panel__body"]} >
             <div className={styles["main__panel__body__left"]} >

@@ -20,11 +20,12 @@
     border: none;
     background-color: rgba(255, 255, 255, 0.623);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.226);
-
     width: 30%;
     height: 50px;
     border-radius: 5px;
+    text-align: center;
     cursor: pointer;
+
 
   }
 
@@ -41,8 +42,8 @@
     overflow: hidden;
     width: 0;
     height: 0;
-    transition: width 1s ease-in,
-      height 0.25s ease-out;
+    transition: width 10s ease-in,
+      height 0.5s ease-out;
 
   }
 
