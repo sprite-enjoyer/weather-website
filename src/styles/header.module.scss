@@ -5,13 +5,13 @@
   border-top-left-radius: 15px;
   display: flex;
   justify-content: flex-start;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.541), rgba(255, 255, 255, 0));
 
   &__info {
 
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
     padding-left: 2%;
     border-top-left-radius: 15px;
-    width: 25%;
+    width: 40%;
     display: flex;
 
     &__left {
