@@ -34,11 +34,12 @@ export const getServerSideProps: GetServerSideProps<CityProps> = async (context)
 
   const standardString = "https://api.openweathermap.org/data/2.5/weather?units=metric";
   const redirectProps = { props: {}, redirect: { destination: "/404", permanent: false } };
+  const redirectToTbilisi = { props: {}, redirect: { destination: "/?lat=41.69411&lon=44.83368", permanent: true } };
   let { lat, lon } = context.query;
   lat = lat?.toString();
   lon = lon?.toString();
 
-  if (!lat || !lon) return redirectProps;
+  if (!lat || !lon) return redirectToTbilisi;
 
   const stringWithQuery = standardString.concat(`&lat=${lat}&lon=${lon}&appid=${process.env.OPENWEATHER_KEY}`);
 
@@ -48,7 +49,7 @@ export const getServerSideProps: GetServerSideProps<CityProps> = async (context)
 
   const formattedOffset = result.timezone ?
     'UTC ' + ((result.timezone / 3600) >= 0 ? '+' : '') + result.timezone / 3600
-    : undefined;
+    : "Not Found";
 
   return {
     props: {

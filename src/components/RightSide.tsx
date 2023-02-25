@@ -1,19 +1,21 @@
 import { daysOfWeek } from "@/misc/records";
 import { FiveDaysForecastApiResponse, FiveDaysForecastData } from "@/misc/types";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "../styles/rightSide.module.scss";
-import FiveDaysForeCast, { getDateString } from "./FiveDaysForecast";
-import WeatherGraph from "./WeatherGraph";
+import FiveDaysForeCast from "./FiveDaysForecast";
+import WeatherGraph, { GraphCell } from "./WeatherGraph";
 
 export interface RightSideProps {
   lat: string,
   lon: string,
-
 }
 
 const RightSide = ({ lat, lon }: RightSideProps) => {
   const [data, setData] = useState<FiveDaysForecastData[]>();
-  const filteredData = data?.filter((_, i) => i % 8 === 0);
+  const filteredData = useMemo(() => data?.filter((_, i) => i % 8 === 0), [data]);
+  const graphData: GraphCell[] | undefined = useMemo(() => data?.map(x => {
+    return { date: x.date, temperature: x.temperature, weatherName: x.weatherName };
+  }), [data]);
 
   const updateFiveDaysForecast = async (lat: string, lon: string) => {
     const queryString = `/api/getFiveDaysForecast?lat=${lat}&lon=${lon}`
@@ -21,12 +23,12 @@ const RightSide = ({ lat, lon }: RightSideProps) => {
       await fetch(queryString)
         .then(async response => response.json())
         .catch(error => console.error(error));
+
     let result: FiveDaysForecastData[] = response.list.map(element => {
       const date = new Date(element.dt * 1000);
-
       return {
         dayName: daysOfWeek[date.getDay()],
-        dateString: getDateString(date),
+        date: date,
         weatherName: element.weather[0].main,
         temperature: `${Math.round(element.main.temp)}°`,
         humidity: `Humidity: ${element.main.humidity}%`,
@@ -46,7 +48,7 @@ const RightSide = ({ lat, lon }: RightSideProps) => {
         <FiveDaysForeCast data={filteredData} />
       </div>
       <div className={styles["main__lower"]} >
-        <WeatherGraph />
+        <WeatherGraph data={graphData} />
       </div>
     </div>
   );

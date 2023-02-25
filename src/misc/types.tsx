@@ -165,7 +165,7 @@ export interface WeatherParameters {
 export interface FiveDaysForecastData {
 
   dayName: string,
-  dateString: string,
+  date: Date,
   weatherName: string,
   temperature: string,
   humidity: string,

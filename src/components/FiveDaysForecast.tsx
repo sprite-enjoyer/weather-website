@@ -16,18 +16,16 @@ const FiveDaysForecast = ({ data }: FiveDaysForecastProps) => {
       {
         data && data.map(element =>
           <WeatherCard
-            key={element.dateString}
+            key={getDateString(element.date)}
             day={element.dayName}
-            date={element.dateString}
+            date={getDateString(element.date)}
             image={iconMap[element.iconName ?? "200"]}
             weatherName={element.weatherName}
             temperature={element.temperature}
             humidity={element.humidity}
             windSpeed={element.windSpeed}
           />
-        )
-      }
-
+        )}
     </div>
   );
 };
