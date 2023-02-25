@@ -1,6 +1,5 @@
 import styles from "../styles/weatherInfoPiece.module.scss";
 import { ReactNode } from "react";
-import Image from "next/image";
 
 export interface WeatherInfoPieceProps {
   text: string,
@@ -13,7 +12,7 @@ const WeatherInfoPiece = ({ text, iconURI, Component }: WeatherInfoPieceProps) =
     <div className={styles["main"]} >
       <div className={styles["main__section"]}  >
         {Component ??
-          <Image
+          <img
             className={styles["main__section__image"]}
             src={iconURI ?? ""}
             width={30}

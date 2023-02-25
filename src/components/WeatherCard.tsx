@@ -1,5 +1,4 @@
 import styles from "../styles/weatherCard.module.scss";
-import Image from "next/image";
 
 export interface WeatherCardProps {
 
@@ -34,7 +33,7 @@ const WeatherCard = ({
       </div>
       <div className={styles["main__weather"]} >
         <div className={styles["main__weather__wrapper"]} >
-          <Image
+          <img
             src={image}
             className={styles["main__weather__wrapper__image"]}
             alt={"weather image"}

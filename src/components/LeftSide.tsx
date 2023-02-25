@@ -1,8 +1,6 @@
-import { link } from "fs";
 import React, { ReactNode } from "react";
 import styles from "../styles/leftSide.module.scss";
 import WeatherInfoPiece from "./WeatherInfoPiece";
-import Windmill from "./Windmill";
 
 export interface LeftSideProps {
 
