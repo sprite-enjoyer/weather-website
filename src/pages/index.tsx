@@ -95,12 +95,29 @@ const city = ({
 
   const iconLink = iconMap[weatherIconName ?? "200"];
   const title4Seo = `Weather in ${cityName}`;
+  const description4Seo =
+    `
+  City: ${cityName}
+  Weather: ${weatherName}
+  Temperature: ${temperature}°
+  Wind: ${windSpeed}m/sec
+  Humidity: ${humidity}
+  `;
+  const imageUrl =
+    "https://images.unsplash.com/photo-1563305641-806e131a4262?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80"
 
   return (
     <>
       <Head key={1} >
         <title>{title4Seo}</title>
         <link rel="shortcut icon" href="favicon.svg" />
+        <meta charSet="utf-8" />
+        <meta name="description" content={description4Seo} />
+        <meta property="og:title" content={title4Seo} />
+        <meta property="og:description" content={description4Seo} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en" />
       </Head>
       <div key={2} className={styles["main"]} >
         <img
