@@ -1,4 +1,6 @@
 import styles from "../styles/weatherCard.module.scss";
+import Image from "next/image";
+
 export interface WeatherCardProps {
 
   day: string,
@@ -32,9 +34,10 @@ const WeatherCard = ({
       </div>
       <div className={styles["main__weather"]} >
         <div className={styles["main__weather__wrapper"]} >
-          <img
+          <Image
             src={image}
             className={styles["main__weather__wrapper__image"]}
+            alt={"weather image"}
           />
         </div>
         <span className={styles["main__weather__name"]} >
