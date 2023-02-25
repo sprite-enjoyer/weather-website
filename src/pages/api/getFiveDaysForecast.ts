@@ -1,4 +1,3 @@
-import { getDateString } from "@/components/FiveDaysForecast";
 import { FiveDaysForecastApiResponse, FiveDaysForecastData } from "@/misc/types";
 import { NextApiRequest, NextApiResponse } from "next";
 

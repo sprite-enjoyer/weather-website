@@ -7,6 +7,7 @@ import { WeatherApiResponse } from "@/misc/types";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import styles from "../styles/city.module.scss";
+import favicon from "../../public/favicon.ico";
 
 export interface CityProps {
 
@@ -101,7 +102,9 @@ const city = ({
     <>
       <Head>
         <title>{title4Seo}</title>
-      </Head>
+        <link rel="shortcut icon" href="favicon.svg" />
+        
+</Head>
       <div className={styles["main"]} >
         <img
           className={styles["main__background-image"]}
