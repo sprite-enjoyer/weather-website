@@ -1,6 +1,6 @@
 import styles from "../styles/header.module.scss";
 import CityChooser from "./CityChooser";
-
+import Image from "next/image";
 export interface HeaderProps {
   cityName: string,
   temperature: number,
@@ -22,7 +22,7 @@ const Header = ({ cityName, temperature, iconLink, weatherName }: HeaderProps) =
           </span>
         </div>
         <div className={styles["header__info__right"]}>
-          <img
+          <Image
             className={styles["header__info__right__image"]}
             src={iconLink}
             alt={weatherName + " icon"}

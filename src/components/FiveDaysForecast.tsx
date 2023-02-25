@@ -14,9 +14,9 @@ const FiveDaysForecast = ({ data }: FiveDaysForecastProps) => {
   return (
     <div className={styles["main"]} >
       {
-        data && data.map(element =>
+        data && data.map((element, i) =>
           <WeatherCard
-            key={getDateString(element.date)}
+            key={i}
             day={element.dayName}
             date={getDateString(element.date)}
             image={iconMap[element.iconName ?? "200"]}

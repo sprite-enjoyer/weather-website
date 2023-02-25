@@ -2,6 +2,7 @@ import styles from "../styles/cityChooser.module.scss";
 import cities from "public/static/cities.json";
 import { FocusEventHandler, MouseEventHandler, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const CityChooser = () => {
 
@@ -32,7 +33,7 @@ const CityChooser = () => {
         className={styles["main__btn"]}
       >
         <span className={styles["main__btn__text"]} >{selectedCity}</span>
-        <img className={styles["main__btn__arrow"]} src="/images/arrow.svg" alt="arrowImage" />
+        <Image className={styles["main__btn__arrow"]} src="/images/arrow.svg" alt="arrowImage" />
       </button>
       <div className={styles[focused ? "main__expanded" : "main__hidden"]}>
         {cities.map((city) => (
