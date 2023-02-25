@@ -2,7 +2,7 @@ import styles from "../styles/windmill.module.scss";
 import windmillHead from "public/images/windmill-head.svg";
 import windmillBody from "public/images/windmill-body.svg";
 import React from "react";
-
+import Image from "next/image";
 export interface WindmillProps {
   style?: React.CSSProperties,
   width: string,
@@ -13,12 +13,12 @@ const Windmill = ({ style, width, height }: WindmillProps) => {
   return (
     <div className={styles["main"]} style={{ width: width, height: height, ...style }} >
       <div className={styles["main__images"]} >
-        <img
+        <Image
           className={styles["main__images__head"]}
           src={windmillHead}
           alt="windmill head"
         />
-        <img
+        <Image
           className={styles["main__images__body"]}
           src={windmillBody}
           alt="windmill body"
