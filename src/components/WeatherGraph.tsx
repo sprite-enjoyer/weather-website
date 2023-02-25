@@ -6,10 +6,12 @@ import {
   LineElement,
   PointElement,
   LinearScale,
-  CategoryScale
+  CategoryScale,
+  LineController,
+  Title
 } from 'chart.js';
 
-ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale);
+ChartJS.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
 
 export interface GraphCell {
   date: Date,
