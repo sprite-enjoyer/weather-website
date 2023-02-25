@@ -13,14 +13,14 @@ const Windmill = ({ style, width, height }: WindmillProps) => {
   return (
     <div className={styles["main"]} style={{ width: width, height: height, ...style }} >
       <div className={styles["main__images"]} >
-        <Image
+        <img
           className={styles["main__images__head"]}
-          src={windmillHead}
+          src="images/windmill-head.svg"
           alt="windmill head"
         />
-        <Image
+        <img
           className={styles["main__images__body"]}
-          src={windmillBody}
+          src="images/windmill-body.svg"
           alt="windmill body"
         />
       </div>
